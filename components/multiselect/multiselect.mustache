@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<b>Car Brands</b>
+		<div class="pull-right btn-group">
+			<button class="btn btn-primary btn-xs" can-click="deselectAll">&laquo; Deselect All</button>
+			<button class="btn btn-primary btn-xs" can-click="selectAll">Select All &raquo;</button>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="items-wrap">
+			<ul class="list-unstyled">
+				{{#notSelected}}
+					<li>
+						<label class="checkbox">
+							<input type="checkbox" can-change="selectItem"> {{ name }}
+						</label>
+					</li>
+				{{/notSelected}}
+			</ul>
+		</div>
+		<div class="selected-items-wrap">
+			<ul class="list-unstyled">
+				{{#selected}}
+					<li>
+						<label class="checkbox">
+							<input type="checkbox" can-change="deselectItem" checked> {{ name }}
+						</label>
+					</li>
+				{{/selected}}
+			</ul>
+		</div>
+	</div>
+	<div class="panel-footer">Selected: {{ selected.length }}</div>
+</div>

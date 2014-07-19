@@ -1,0 +1,18 @@
+{
+  "name": "funcunit-cucumber",
+  "version": "0.0.0",
+  "dependencies": {
+    "require-can-renderers": "git://github.com/retro/require-can-renderers.git",
+    "requirejs": "~2.1.11",
+    "canjs": "~2.1.1",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.2.0",
+    "cucumber-js": "~0.4.1",
+    "qunit": "~1.14.0",
+    "funcunit": "~2.0.4",
+    "lodash": "~2.4.1"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
+  }
+}

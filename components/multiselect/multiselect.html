@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Multiselect demo page!</title>
+    <link rel="stylesheet" href="../../style/style.css" type="text/css">
+    <style>
+      #wrap {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="wrap">
+      <div class="row">
+        <div id="content"></div>
+      </div>
+    </div>
+    <script type='text/javascript' src='../../bower_components/requirejs/require.js'></script>
+    <script type='text/javascript' src='../../requirejsconfig.js'></script>
+    <script type='text/javascript'>
+      requirejs.config({
+          baseUrl : '../../'
+      })
+      requirejs(['components/multiselect/multiselect'], function(Multiselect){
+        var template = can.view.mustache('<rt-multiselect items="items"></rt-multiselect>');
+
+        var items = new can.List([{
+          id : 1,
+          name : "BMW"
+        },{
+          id : 2,
+          name : "Mercedes"
+        },{
+          id : 3,
+          name : "Toyota"
+        },{
+          id : 4,
+          name : "Honda"
+        },{
+          id : 5,
+          name : "Renault"
+        },{
+          id : 6,
+          name : "Peugeot"
+        },{
+          id : 7,
+          name : "Hyundai"
+        },{
+          id : 8,
+          name : "Lexus"
+        },{
+          id : 9,
+          name : "Porsche"
+        },{
+          id : 10,
+          name : "Yugo"
+        }]);
+
+        $('#content').html(template({
+          items : items
+        }));
+        
+      })
+    </script>
+  </body>
+</html>

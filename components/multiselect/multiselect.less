@@ -1,0 +1,33 @@
+rt-multiselect {
+	display: block;
+	.panel-body {
+		margin: 0;
+		padding: 0;
+		height: 150px;
+	}
+	.panel-footer {
+		text-align: right;
+	}
+	.selected-items-wrap {
+		border-left: 1px solid #ddd;
+		overflow-y: auto;
+		height: 100%;
+		float: right;
+		width: 50%;
+	}
+	.items-wrap {
+		border-right: 1px solid #ddd;
+		overflow-y: auto;
+		height: 100%;
+		float: left;
+		width: 50%;
+	}
+
+	li {
+		border-bottom: 1px solid #ddd;
+		padding-left: 30px;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}

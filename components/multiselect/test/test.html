@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <title>Tests</title>
+  <link rel="stylesheet" href="../../../bower_components/qunit/qunit/qunit.css"/>
+  <link rel="stylesheet" href="../../../style/style.css"/>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-test-area"></div>
+  <script src="../../../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../../../bower_components/qunit/qunit/qunit.js"></script>
+  <script src="../../../bower_components/funcunit/dist/funcunit.js"></script>
+  <script src="../../../bower_components/cucumber-js/release/cucumber.js"></script>
+  <script type='text/javascript' src='../../../bower_components/requirejs/require.js'></script>
+  <script type='text/javascript' src='../../../requirejsconfig.js'></script>
+  <script>
+    QUnit.config.reorder = false;
+    QUnit.config.testTimeout = 1000;
+
+    requirejs.config({
+        baseUrl : '../../../'
+    })
+
+    requirejs(['lib/test_runner', 'components/multiselect/test/test'], function(TestRunner, test){
+
+      var features = $.when($.get('features/deselecting.feature'), $.get('features/selecting.feature'));
+      features.then(function(deselecting, selecting){
+
+        TestRunner(test, [selecting[0], deselecting[0]]);
+
+      });
+    });
+
+  </script>
+</body>
+</html>
