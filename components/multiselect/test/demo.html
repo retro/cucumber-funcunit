@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <title>Tests</title>
+  <link rel="stylesheet" href="../../../bower_components/qunit/qunit/qunit.css"/>
+  <link rel="stylesheet" href="../../../style/style.css"/>
+  <style>
+    #qunit {
+      display: none;
+    }
+    .cursor {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZWZzLz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJJY29ucyB3aXRoIG51bWJlcnMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIj48ZyBmaWxsPSIjMDAwMDAwIiBpZD0iR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03MjAuMDAwMDAwLCAtMzM2LjAwMDAwMCkiPjxwYXRoIGQ9Ik03MjMsMzM2IEw3MzIsMzQ0IEw3MjguNjQsMzQ1LjQ5MzMzMyBMNzMxLDM1MSBMNzI5LDM1MiBMNzI2LjYwNDcyNCwzNDYuMzk3OSBMNzIzLDM0OCBaIE03MjMsMzM2IiBpZD0iVHJpYW5nbGUgMjk1Ii8+PC9nPjwvZz48L3N2Zz4=);
+    }
+    .pulsate {
+      border: 10px solid red;
+      background: transparent;
+      -webkit-border-radius: 60px;
+      -moz-border-radius: 60px;
+      border-radius: 60px;
+      height: 50px;
+      width: 50px;
+      
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      z-index: 1;
+      opacity: 0;
+      display: none;
+    }
+    @-moz-keyframes pulse {
+     0% {
+      -moz-transform: scale(0);
+      opacity: 0.0;
+     }
+     25% {
+      -moz-transform: scale(0);
+      opacity: 0.1;
+     }
+     50% {
+      -moz-transform: scale(0.1);
+      opacity: 0.3;
+     }
+     75% {
+      -moz-transform: scale(0.5);
+      opacity: 0.5;
+     }
+     100% {
+      -moz-transform: scale(1);
+      opacity: 0.0;
+     }
+    }
+    @-webkit-keyframes "pulse" {
+     0% {
+      -webkit-transform: scale(0);
+      opacity: 0.0;
+     }
+     25% {
+      -webkit-transform: scale(0);
+      opacity: 0.1;
+     }
+     50% {
+      -webkit-transform: scale(0.1);
+      opacity: 0.3;
+     }
+     75% {
+      -webkit-transform: scale(0.5);
+      opacity: 0.5;
+     }
+     100% {
+      -webkit-transform: scale(1);
+      opacity: 0.0;
+     }
+    }
+    .visible {
+      display: block;
+      -webkit-animation: pulse 0.5s ease-out;
+      -moz-animation: pulse 0.5s ease-out;
+      animation: pulse 0.5s ease-out;
+      -webkit-animation-iteration-count: 1;
+      -moz-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+    }
+    #demo-area {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div class="container" id="demo-area">
+    <div class="row"><div id="qunit-test-area"></div></div>
+  </div>
+  
+  <div class="cursor"></div>
+  <div class="pulsate"></div>
+  <script src="../../../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../../../bower_components/qunit/qunit/qunit.js"></script>
+  <script src="../../../bower_components/funcunit/dist/funcunit.js"></script>
+  <script src="../../../bower_components/cucumber-js/release/cucumber.js"></script>
+  <script type='text/javascript' src='../../../bower_components/requirejs/require.js'></script>
+  <script type='text/javascript' src='../../../requirejsconfig.js'></script>
+  <script>
+    var loaded = false,
+        feature;
+    runFeature = function(f){
+      feature = f;
+    }
+    QUnit.config.reorder = false;
+    QUnit.config.testTimeout = 10000;
+    requirejs.config({
+      baseUrl : '../../../'
+    })
+
+    requirejs(['lib/test_runner', 'lib/funcunit_wrapper', 'components/multiselect/test/test'], function(TestRunner, funcunitWrapper, test){
+
+      funcunitWrapper(F);
+
+      loaded = true;
+
+      if(feature){
+        TestRunner(test, [feature], {scenarioPause: 2000});
+      }
+
+    });
+
+  </script>
+</body>
+</html>

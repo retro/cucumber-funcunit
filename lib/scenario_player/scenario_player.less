@@ -1,0 +1,71 @@
+rt-scenario-player {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	.player {
+		position: absolute;
+		top: 51px;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+	iframe {
+		width: 100%;
+		height: 100%;
+	}
+	.demo-area {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 300px;
+		bottom: 0;
+	}
+	.sidebar {
+		position: absolute;
+		left: 0;
+		width: 300px;
+		top: 0;
+		bottom: 0;
+		border-right: 1px solid #e7e7e7;
+		background: #f8f8f8;
+		overflow-y: auto;
+		.scenario-wrap {
+			border-bottom: 1px solid #e7e7e7;
+			h5 {
+				padding: 10px 15px;
+				cursor: pointer;
+				margin: 0;
+				&:hover {
+					background: #e7e7e7;
+				}
+			}
+			ul {
+				display: none;
+				margin-bottom: 0;
+				li {
+					padding: 0 15px 0 30px;
+				}
+			}
+			&.active {
+				h5 {
+					color: white;
+					background: #428bca;
+				}
+				ul {
+					display: block;
+				}
+			}
+			.played {
+				background: #DFF0D8;
+			}
+			.progress-bar {
+				width: 100%;
+				text-align: left;
+				font-size: 14px;
+			}
+		}
+	}
+}
